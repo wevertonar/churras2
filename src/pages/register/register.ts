@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  username:string;
+  password:string;
+  repassword:string;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private toastCtrl: ToastController) { }
+              
+  presentToast() {
+        let toast = this.toastCtrl.create({
+          message: 'User was added successfully',
+          duration: 3000,
+          position: 'top'
+        });
+
+        toast.onDidDismiss(() => {
+          console.log('Dismissed toast');
+        });
+
+        toast.present();
+      }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  register(){
+    if(this.username.length==0 || this.password.length==0 || this.repassword.length==0)
+    alert("Please fill all fileds");
   }
 
 }
