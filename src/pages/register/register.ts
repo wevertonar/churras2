@@ -10,11 +10,12 @@ import { ToastController } from 'ionic-angular';
 export class RegisterPage {
 
   username:string;
+  email: string;
   password:string;
   repassword:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private toastCtrl: ToastController) { }
-              
+
   presentToast() {
         let toast = this.toastCtrl.create({
           message: 'User was added successfully',
@@ -36,7 +37,7 @@ export class RegisterPage {
 
   register(){
     if(this.username.length==0 || this.password.length==0 || this.repassword.length==0)
-    alert("Please fill all fileds");
+    alert("Por favor preencha todos os arquivos");
   }
 
 }
