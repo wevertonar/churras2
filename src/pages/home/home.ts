@@ -12,7 +12,7 @@ export class HomePage {
           password:string;
 
   constructor(public navCtrl:NavController) {
-
+    //
   }
 
   login(){
